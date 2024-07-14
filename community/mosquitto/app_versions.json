@@ -61,7 +61,7 @@
         "schema": {
             "groups": [
                 {
-                    "name": "Mosquitto Configuration",
+                    "name": "Mosquitto Authentication",
                     "description": "Configure Mosquitto"
                 },
                 {
@@ -79,21 +79,12 @@
             ],
             "questions": [
                 {
-                    "variable": "mosquittoConfig",
+                    "variable": "mosquittoAuthentication",
                     "label": "",
-                    "group": "Mosquitto Configuration",
+                    "group": "Mosquitto Authentication",
                     "schema": {
                         "type": "dict",
                         "attrs": [
-                            {
-                                "variable": "allowEmptyPassword",
-                                "label": "Allow Empty Password",
-                                "description": "Allow empty password for Mosquitto.</br>\nIt's recommended to keep this disabled.\n",
-                                "schema": {
-                                    "type": "boolean",
-                                    "default": false
-                                }
-                            },
                             {
                                 "variable": "password",
                                 "label": "Password",

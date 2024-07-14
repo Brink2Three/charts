@@ -9,20 +9,12 @@ groups:
     description: Configure Resources for Mosquitto
 
 questions:
-  - variable: mosquittoConfig
+  - variable: mosquittoAuthentication
     label: ""
-    group: Mosquitto Configuration
+    group: Mosquitto Authentication settings
     schema:
       type: dict
       attrs:
-        - variable: allowEmptyPassword
-          label: Allow Empty Password
-          description: |
-            Allow empty password for Mosquitto.</br>
-            It's recommended to keep this disabled.
-          schema:
-            type: boolean
-            default: false
         - variable: password
           label: Password
           description: Password for Mosquitto.
@@ -33,7 +25,6 @@ questions:
             # Character @ is not allowed in password
             valid_chars: '^((?!@).)*$'
             valid_chars_error: "Character @ is not allowed in password"
-            show_if: [[ "allowEmptyPassword", "=", false ]]
             default: ""
 
   - variable: MosquittoNetwork
