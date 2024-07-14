@@ -139,8 +139,8 @@
                                 "description": "The port for Mosquitto.",
                                 "schema": {
                                     "type": "int",
-                                    "default": 18883,
-                                    "min": 90000,
+                                    "default": 1883,
+                                    "min": 1024,
                                     "max": 65535,
                                     "required": true
                                 }
