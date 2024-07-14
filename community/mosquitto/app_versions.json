@@ -42,7 +42,7 @@
                 "https://github.com/truenas/charts/tree/master/community/mosquitto"
             ],
             "keywords": [
-                "cache"
+                "mqtt"
             ]
         },
         "app_metadata": {
