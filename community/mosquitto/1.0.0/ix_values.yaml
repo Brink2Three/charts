@@ -1,0 +1,95 @@
+image:
+  repository: eclipse-mosquitto
+  tag: 1.6.12
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+mosquittoNetwork:
+  httpPort: 9090
+  mqttport: 1883
+  hostNetwork: false
+
+mosquittoStorage:
+  data:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: data
+  config:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: config
+  additionalStorages: []
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  existingClaim: ""
+  mountPath: /mosquitto/data
+  subPath: ""
+  size: 1Gi
+
+# Old Values.yaml
+##############################################################
+#podSecurityContext: {}
+#  # runAsUser: 1001
+#  # fsGroup: 10000
+#
+#securityContext: {}
+#  # runAsUser: 1001
+#  # fsGroup: 10000
+#
+#nodeSelector: {}
+#
+#tolerations: []
+#
+#affinity: {}
+#
+#authentication:
+#  passwordEntries: ""
+#  # To use authentication with mosquitto, you can set a list of password entries to be used.
+#  # reference https://mosquitto.org/man/mosquitto_passwd-1.html to generate these entries.
+#  # For example:
+#  # passwordEntries: |-
+#  #   user1:$6$BKzw0RKerxV4Esbj$Uz5slWGB1TiOtYIEokEl0eR1YSEQAdKpcdRYMsLYbwjktlVzdLyGk41YCPGyMLnBePtdwPhkcm8kjGI0R9s57w==
+#  #   user2:$6$b5vYuHrSLj48Ii32$NjlbnatIaUQSsNvxxTpawpav6NPyZ8QhGrdEVGtyU1rgEGjNzVGKlstRg29FV6MFTPs/ugPA8D5I5+qRcIMXSg==
+#  passwordFilePath: "/etc/mosquitto/passwordfile"
+#
+#authorization:
+#  acls: ""
+#  # To use authorizations with mosquitto, you can set a list of per user or pattern-based rules.
+#  # reference https://mosquitto.org/man/mosquitto-conf-5.html for further information.
+#  # For example:
+#  # acls: |-
+#      # zigbee2mqtt ACLs
+#      # user zigbee2mqtt
+#      # topic readwrite zigbee2mqtt/#
+#      # topic readwrite homeassistant/#
+#      # Tasmota-compatible ACLs
+#      # pattern read cmnd/%u/#
+#      # pattern write stat/%u/#
+#      # pattern write tele/%u/#
+#  aclfilePath: "/etc/mosquitto/aclfile"
+#
+#existingConfigMap: ""
+#config: |
+#  persistence true
+#  persistence_location /mosquitto/data/
+#  log_dest stdout
+#  listener 1883
+#  listener 9090
+#  protocol websockets
+#
+### Additional volumes.
+#extraVolumes: []
+#  # - name: tls
+#  #   secret:
+#  #     secretName: mosquitto-certs
+#
+### Additional volumeMounts to the main container.
+#extraVolumeMounts: []
+#  # - name: tls
+#  #   mountPath: /certs
+#  #   subPath: cafile

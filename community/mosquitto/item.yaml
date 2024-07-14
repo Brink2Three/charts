@@ -1,0 +1,8 @@
+icon_url: https://media.sys.truenas.net/apps/lidarr/icons/icon.png
+categories:
+  - home-automation
+screenshots:
+  - #TODO
+tags:
+  - mqtt
+  - home-automation

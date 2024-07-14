@@ -1,0 +1,27 @@
+name: mosquitto
+description: Eclipse Mosquitto is an open source message broker which implements MQTT version 5, 3.1.1 and 3.1
+annotations:
+  title: Mosquitto
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: 2.4.2.4238
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://mosquitto.org
+icon: https://media.sys.truenas.net/apps/mosquitto/icons/icon.png
+sources:
+  - https://github.com/eclipse/mosquitto
+  - https://github.com/truenas/charts/tree/master/community/mosquitto
+keywords:
+  - mosquitto
+  - home-automation
+  - MQTT
+  - eclipse-iot
